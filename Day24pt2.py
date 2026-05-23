@@ -4,7 +4,7 @@ import torch.nn as nn       # Is the neural network model that contains all the 
 # In PyTorch we create a neural network by making a class that inherits from nn.Module
 
 
-class NeutralNetwork(nn.Module):
+class NeuralNetwork(nn.Module):
     def __init__(self):
         super().__init__()  # super() here calls for the parents class of mm.Module and runs its initiation(setup) without the neural network wont function.
         self.layers = nn.Sequential(
@@ -13,11 +13,11 @@ class NeutralNetwork(nn.Module):
             nn.Linear(128, 10)
         )
 
-    def forward(self, x):   # X is our input data, self refers to the object we created which is model.
+    def forward(self, x):   # x is our input data, self refers to the object we created which is model.
         return self.layers(x)
 
 
-model = NeutralNetwork()  # the object created from our blueprint which is 'NeutralNetwork'.
+model = NeuralNetwork()  # the object created from our blueprint which is 'class NeutralNetwork(nn.Module)'.
 print(model)
 
 x = torch.randn(1, 784)  # Creates a tensor w/ 1 sample & 784 random numbers aka pixels in our case. Tensor is a multi dimensional array. Like numPy arrays.
