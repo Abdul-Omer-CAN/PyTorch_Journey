@@ -96,7 +96,7 @@ for epoch in range(epochs):
 
 ## Accuracy Section ##
 
-model.eval()  # switches of training mode and turns on eval mode.
+model.eval()  # switches off training mode and turns on eval mode.
 correct = 0  # 2 counters starts at zero
 total = 0
 
@@ -108,3 +108,8 @@ with torch.no_grad():  # turns off gradient tracking.
         correct += (predicted == labels).sum().item()  # compare predictions to real labels. .sum() count the trues..item() convert to plain no. add to counter.
 
     print(f"Accuracy: {100 * correct / total:.2f}%")  # will calculate the accuracy percentage -> (correct/total)x100 = accuracy %
+
+torch.save(model.state_dict(), 'resnet18_planes_cars.pth')  # This will save the weights for the next day.
+# torch.save -> PyTorch's save fxn
+# mode.state_dict() -> extracts the learned weights and biases form the model. Basically everything the model learnt during training.
+# .pth is the standard PyTorch extension for saving weights.

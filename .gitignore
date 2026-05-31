@@ -1,0 +1,3 @@
+data/
+*.tar.gz
+resnet18_planes_cars.pth
